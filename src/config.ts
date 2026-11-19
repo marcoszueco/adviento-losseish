@@ -4,5 +4,5 @@ export const config = {
   headline: 'PORQUE NO SOLO SOIS COMPAÑERAS, TAMBIÉN SOIS MI VIDA',
   footer: 'Hecho para los nuestros.',
   /** Extensión de tus fotos: jpg, jpeg, png, webp... */
-  photoExtension: 'jpg',
+  photoExtension: 'jpeg',
 } as const
