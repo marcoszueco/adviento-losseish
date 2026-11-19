@@ -16,6 +16,8 @@ export interface AdventDay {
   demo?: boolean
   /** Día del que tomar la foto (para la baldosa de prueba). */
   photoDay?: number
+  /** Nombre de archivo concreto, si la foto no sigue la numeración 01..25. */
+  photoFile?: string
 }
 
 export const TOTAL_DAYS = 25
@@ -67,5 +69,5 @@ export const demoDay: AdventDay = {
   color: 'blue',
   shape: 'a',
   demo: true,
-  photoDay: 1,
+  photoFile: 'ejemplo.jpeg',
 }

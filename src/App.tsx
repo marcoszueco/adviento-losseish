@@ -191,7 +191,7 @@ function DayTile({ data, state, isToday, hint, onSelect }: DayTileProps) {
     >
       {state === 'open' ? (
         <span className="tile__photo">
-          <DayPhoto day={data.photoDay ?? data.day} />
+          <DayPhoto day={data.photoDay ?? data.day} file={data.photoFile} />
         </span>
       ) : (
         <span className="tile__face" aria-hidden="true">
@@ -237,7 +237,7 @@ function DayDialog({ data, onClose }: { data: AdventDay; onClose: () => void }) 
           <span aria-hidden="true">×</span>
         </button>
         <div className="dialog__media">
-          <DayPhoto day={data.photoDay ?? data.day} />
+          <DayPhoto day={data.photoDay ?? data.day} file={data.photoFile} />
         </div>
         <div className="dialog__caption">
           <p className="dialog__eyebrow">
@@ -250,9 +250,10 @@ function DayDialog({ data, onClose }: { data: AdventDay; onClose: () => void }) 
   )
 }
 
-function DayPhoto({ day }: { day: number }) {
+function DayPhoto({ day, file }: { day: number; file?: string }) {
   const [failed, setFailed] = useState(false)
   const name = String(day).padStart(2, '0')
+  const fileName = file ?? `${name}.${config.photoExtension}`
 
   if (failed) {
     return (
@@ -266,8 +267,8 @@ function DayPhoto({ day }: { day: number }) {
   return (
     <img
       className="photo"
-      src={`${import.meta.env.BASE_URL}fotos/${name}.${config.photoExtension}`}
-      alt={`Foto del día ${day}`}
+      src={`${import.meta.env.BASE_URL}fotos/${fileName}`}
+      alt={file ? 'Foto de ejemplo' : `Foto del día ${day}`}
       loading="lazy"
       onError={() => setFailed(true)}
     />
