@@ -225,11 +225,19 @@ button {
 
 .tile__label,
 .tile__special {
-  font-size: 0.5rem;
   font-weight: 600;
-  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(255, 250, 238, 0.75);
+  color: rgba(255, 250, 238, 0.78);
+}
+
+.tile__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+}
+
+.tile__special {
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
 }
 
 .tile__number {
@@ -431,9 +439,9 @@ button {
 
 .demo-section__label {
   margin: 0 0 1.5rem;
-  font-size: 0.625rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -455,11 +463,11 @@ button {
   justify-content: center;
   gap: 0.45rem;
   padding: 3rem 1.25rem 0.75rem;
-  font-size: 0.78rem;
+  font-size: 1rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(48, 43, 37, 0.78);
+  color: rgba(48, 43, 37, 0.82);
 }
 
 .site-footer__credit a {
@@ -472,8 +480,8 @@ button {
 .site-footer__insta { display: inline-flex; }
 
 .site-footer__insta svg {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .site-footer > p {
@@ -481,7 +489,7 @@ button {
   padding: 0.75rem 1.25rem 3rem;
   text-align: center;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   font-style: italic;
   color: rgba(44, 41, 37, 0.85);
 }
