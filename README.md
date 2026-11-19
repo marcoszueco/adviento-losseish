@@ -1,6 +1,6 @@
 # Adviento Los Seish 🎄
 
-Calendario de adviento en forma de mosaico: 24 días, cada uno con una foto y una frase. Los días se van abriendo automáticamente según la fecha (1–24 de diciembre) y el estado de cada puerta se guarda en el navegador.
+Calendario de adviento con **25 días**: una foto y una frase por día, y una foto especial el 25. Las puertas aparecen en un mosaico desordenado de baldosas pastel y se abren según la fecha (1–25 de diciembre). Cada apertura muestra la foto arriba y la frase debajo en una ventana.
 
 Hecho con **Vite + React + TypeScript**. Listo para desplegar en **Vercel**.
 
@@ -21,56 +21,60 @@ npm run build
 
 ## Añadir las fotos
 
-Copia tus 24 fotos en `public/fotos/` con los nombres `01.jpg`, `02.jpg`, …, `24.jpg`.
+Copia tus 25 fotos en `public/fotos/` con los nombres `01.jpg`, `02.jpg`, …, `25.jpg`. La del día 25 es la especial.
 
-Mientras no existan, se muestra una tarjeta decorativa de respaldo. Si tus fotos son `.png` o `.webp`, cambia `photoExtension` en `src/config.ts`.
+Mientras no existan, se muestra una tarjeta de respaldo con el número. Si tus fotos son `.png` o `.webp`, cambia `photoExtension` en `src/config.ts`.
 
 ## Cambiar textos
 
-- **Título, subtítulo y pie:** `src/config.ts`
-- **Frases de cada día:** `src/data/days.ts` (array `days`, campo `phrase`)
+- **Título, intro, frase de ejemplo y pie:** `src/config.ts`
+- **Frases de cada día:** `src/data/days.ts` (campo `phrase`)
+
+## Orden y forma del mosaico
+
+En `src/data/days.ts` está el array `days`, que se pinta en el orden en que aparece. Para mover un día, cambia su posición en el array. Cada entrada permite:
+
+- `color`: `red` | `blue` | `green` | `ochre`
+- `shape`: `a` | `b` | `c` | `d` (esquinas redondeadas asimétricas)
+- `wide: true` → ocupa dos columnas
+- `tall: true` → ocupa dos filas
+- `special: true` → estilo del día 25
+
+El grid usa `grid-auto-flow: dense`, así que las baldosas se van encajando solas. Es 2 columnas en móvil, 3 en tablet, 5 en escritorio y 6 en pantallas grandes.
 
 ## Modo prueba
 
 Para revisar el calendario sin esperar a diciembre, añade a la URL:
 
 - `?preview=12` → abre hasta el día 12
-- `?preview=all` → abre los 24 días
+- `?preview=all` → abre los 25 días
 - `?preview=0` → deja todo cerrado
 
-También hay un enlace discreto abajo del todo («Ver todos los días (modo prueba)»). En modo prueba, los días abiertos se guardan por separado para no mezclarse con los reales. El enlace «Reiniciar días abiertos» borra ese estado.
+También hay un enlace discreto abajo del todo. En modo prueba, los días abiertos se guardan por separado para no mezclarse con los reales.
 
-## Subir a GitHub
+## Subir cambios a GitHub / Vercel
 
-El repositorio local ya está inicializado en la rama `main` con un primer commit. Crea el repositorio vacío en GitHub y ejecuta:
+El repositorio remoto es `https://github.com/marcoszueco/adviento-losseish`.
 
 ```bash
-git remote add origin https://github.com/TU_USUARIO/TU_REPOSITORIO.git
-git push -u origin main
+git add .
+git commit -m "Describe tus cambios"
+git push
 ```
 
-Después, cada cambio se sube con `git add .`, `git commit -m "mensaje"` y `git push`.
-
-## Desplegar en Vercel
-
-1. Entra en [vercel.com](https://vercel.com) y haz login con GitHub.
-2. **Add New → Project** y elige el repositorio.
-3. Vercel detecta Vite automáticamente. Confirma que el comando de build es `npm run build` y el directorio de salida `dist` (ya viene en `vercel.json`).
-4. Pulsa **Deploy**.
-
-Cada vez que hagas `git push`, Vercel actualizará la web sola.
+Vercel detecta cada `git push` y redespliega automáticamente: **no hace falta pulsar Redeploy**. Solo sería necesario si cambias algo desde el panel de Vercel.
 
 ## Estructura
 
 ```
 src/
-├── App.tsx              # Interfaz, estado de puertas abiertas y animaciones
-├── config.ts            # Título, subtítulo y extensión de fotos
-├── data/days.ts         # 24 frases + composición del mosaico
-├── lib/date.ts          # Lógica de revelado por fecha y modo prueba
-├── styles.css           # Diseño navideño y responsive
+├── App.tsx              # Interfaz, mosaico, ventana del día y estado guardado
+├── config.ts            # Título, intro, frase de ejemplo y extensión de fotos
+├── data/days.ts         # 25 frases, orden y forma de cada baldosa
+├── lib/date.ts          # Revelado por fecha, cuenta atrás y modo prueba
+├── styles.css           # Diseño editorial pastel y responsive
 └── main.tsx
 public/
 ├── favicon.svg
-└── fotos/               # Aquí van 01.jpg ... 24.jpg
+└── fotos/               # Aquí van 01.jpg ... 25.jpg
 ```
