@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { config } from './config'
-import { days, TOTAL_DAYS, type AdventDay } from './data/days'
+import { days, demoDay, TOTAL_DAYS, type AdventDay } from './data/days'
 import { daysUntilDecember, getRevealedDay, readPreviewParam } from './lib/date'
 
 type TileState = 'locked' | 'ready' | 'open'
@@ -61,10 +61,6 @@ export default function App() {
   }, [hintDay])
 
   const closeDialog = useCallback(() => setSelectedDay(null), [])
-  const handleReset = useCallback(() => {
-    setOpened(new Set<number>())
-    setSelectedDay(null)
-  }, [])
 
   const handleTile = useCallback((day: number, state: TileState) => {
     if (state === 'locked') {
@@ -114,20 +110,22 @@ export default function App() {
           </div>
         </section>
 
+        <section className="demo-section" aria-label="Baldosa de ejemplo">
+          <p className="demo-section__label">Ejemplo · se abre y se cierra cuando quieras</p>
+          <div className="demo-section__tile">
+            <DayTile
+              data={demoDay}
+              state="ready"
+              isToday={false}
+              hint={false}
+              onSelect={handleTile}
+            />
+          </div>
+        </section>
       </main>
 
       <footer className="site-footer">
         <p>{config.footer}</p>
-        <div className="site-footer__tools">
-          {preview === null ? (
-            <a href="?preview=25">Ver todos los días (modo prueba)</a>
-          ) : (
-            <>
-              <a href={window.location.pathname}>Salir del modo prueba</a>
-              <button type="button" onClick={handleReset}>Reiniciar días abiertos</button>
-            </>
-          )}
-        </div>
       </footer>
 
       {selected && <DayDialog data={selected} onClose={closeDialog} />}
