@@ -11,18 +11,29 @@ function storageKey(): string {
   return `adviento-losseish:abiertos${preview === null ? '' : ':preview'}`
 }
 
-function readOpened(): Set<number> {
+/**
+ * Los días anteriores al actual se muestran ya revelados con su foto.
+ * El día actual queda cerrado para que se abra con un clic.
+ * En modo prueba se ignora lo guardado para que no se mezclen pruebas anteriores.
+ */
+function initialOpened(revealedDay: number): Set<number> {
+  const opened = new Set<number>()
+  for (let day = 1; day < revealedDay; day += 1) opened.add(day)
+
+  if (preview !== null) return opened
+
   try {
     const raw = window.localStorage.getItem(storageKey())
-    if (!raw) return new Set<number>()
+    if (!raw) return opened
     const parsed: unknown = JSON.parse(raw)
-    if (!Array.isArray(parsed)) return new Set<number>()
-    return new Set(
-      parsed.filter((n): n is number => typeof n === 'number' && n >= 1 && n <= TOTAL_DAYS),
-    )
+    if (!Array.isArray(parsed)) return opened
+    parsed.forEach((n) => {
+      if (typeof n === 'number' && n >= 1 && n <= TOTAL_DAYS) opened.add(n)
+    })
   } catch {
-    return new Set<number>()
+    // El almacenamiento puede estar desactivado; no es crítico.
   }
+  return opened
 }
 
 function countdownLabel(revealedDay: number): string {
@@ -40,7 +51,7 @@ function countdownLabel(revealedDay: number): string {
 
 export default function App() {
   const revealedDay = useMemo(() => getRevealedDay(preview), [])
-  const [opened, setOpened] = useState<Set<number>>(readOpened)
+  const [opened, setOpened] = useState<Set<number>>(() => initialOpened(revealedDay))
   const [hintDay, setHintDay] = useState<number | null>(null)
   const [selectedDay, setSelectedDay] = useState<number | null>(null)
 
@@ -48,6 +59,7 @@ export default function App() {
     selectedDay === null ? undefined : [demoDay, ...days].find((item) => item.day === selectedDay)
 
   useEffect(() => {
+    if (preview !== null) return
     try {
       window.localStorage.setItem(storageKey(), JSON.stringify([...opened]))
     } catch {
