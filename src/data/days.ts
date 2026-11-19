@@ -12,6 +12,10 @@ export interface AdventDay {
   tall?: boolean
   /** El día 25: foto especial. */
   special?: boolean
+  /** Baldosa de prueba: se puede abrir y cerrar desde hoy. */
+  demo?: boolean
+  /** Día del que tomar la foto (para la baldosa de prueba). */
+  photoDay?: number
 }
 
 export const TOTAL_DAYS = 25
@@ -54,4 +58,12 @@ export const days: AdventDay[] = [
   { day: 17, phrase: 'La mesa está más bonita cuando se sienta quien quieres.', color: 'red', shape: 'c', tall: true },
   { day: 12, phrase: 'La nieve no hace falta cuando hay ganas de compartir.', color: 'ochre', shape: 'd' },
   { day: 13, phrase: 'Escribe ese mensaje que llevas tiempo pensando.', color: 'ochre', shape: 'a', wide: true, tall: true },
+  {
+    day: 0,
+    phrase: 'Empezamos por lo pequeño: un abrazo que dura un segundo de más. Así se abre cada día: la foto primero y la frase justo debajo. Vuelve a abrirla cuando quieras.',
+    color: 'blue',
+    shape: 'a',
+    demo: true,
+    photoDay: 1,
+  },
 ]

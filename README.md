@@ -27,7 +27,7 @@ Mientras no existan, se muestra una tarjeta de respaldo con el número. Si tus f
 
 ## Cambiar textos
 
-- **Título, frase principal, frase de ejemplo y pie:** `src/config.ts`
+- **Título, frase principal y pie:** `src/config.ts`
 - **Frases de cada día:** `src/data/days.ts` (campo `phrase`)
 
 ## Orden y forma del mosaico
@@ -39,6 +39,7 @@ En `src/data/days.ts` está el array `days`, que se pinta en el orden en que apa
 - `wide: true` → ocupa dos columnas
 - `tall: true` → ocupa dos filas
 - `special: true` → estilo del día 25
+- `demo: true` → baldosa de prueba, disponible desde hoy y reabrible las veces que quieras (usa `photoDay` para elegir su foto)
 
 El grid usa `grid-auto-flow: dense`, así que las baldosas se van encajando solas. Es 2 columnas en móvil, 3 en tablet, 5 en escritorio y 6 en pantallas grandes.
 

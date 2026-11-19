@@ -114,36 +114,6 @@ export default function App() {
           </div>
         </section>
 
-        <section className="example">
-          <div className="example__heading">
-            <p className="example__eyebrow">Cómo se abre un día</p>
-            <p className="example__quote">La foto llega primero. La frase, justo debajo.</p>
-            <button
-              type="button"
-              className="example__open"
-              onClick={() => setSelectedDay(1)}
-            >
-              Abrir ventana de ejemplo
-            </button>
-            <p className="example__note">Se abre y se cierra las veces que quieras.</p>
-          </div>
-
-          <button
-            type="button"
-            className="example__card"
-            onClick={() => setSelectedDay(1)}
-            aria-label="Probar cómo se abre un día: ver la ventana del día 1"
-          >
-            <span className="example__media">
-              <DayPhoto day={1} />
-            </span>
-            <span className="example__caption">
-              <span className="example__label">Ejemplo · día 1</span>
-              <span className="example__phrase">{config.examplePhrase}</span>
-              <span className="example__hint">Haz clic aquí también para abrirla →</span>
-            </span>
-          </button>
-        </section>
       </main>
 
       <footer className="site-footer">
@@ -174,8 +144,9 @@ interface DayTileProps {
 }
 
 function DayTile({ data, state, isToday, hint, onSelect }: DayTileProps) {
-  const label =
-    state === 'locked'
+  const label = data.demo
+    ? 'Abrir la ventana de prueba (se puede volver a abrir cuando quieras)'
+    : state === 'locked'
       ? `Día ${data.day}, se abre el ${data.day} de diciembre`
       : state === 'open'
         ? `Ver de nuevo el día ${data.day}`
@@ -188,6 +159,7 @@ function DayTile({ data, state, isToday, hint, onSelect }: DayTileProps) {
     data.wide ? 'tile--wide' : '',
     data.tall ? 'tile--tall' : '',
     data.special ? 'tile--special' : '',
+    data.demo ? 'tile--demo' : '',
     state === 'locked' ? 'tile--locked' : '',
     state === 'ready' ? 'tile--ready' : '',
     state === 'open' ? 'tile--open' : '',
@@ -206,13 +178,14 @@ function DayTile({ data, state, isToday, hint, onSelect }: DayTileProps) {
     >
       {state === 'open' ? (
         <span className="tile__photo">
-          <DayPhoto day={data.day} />
+          <DayPhoto day={data.photoDay ?? data.day} />
         </span>
       ) : (
         <span className="tile__face" aria-hidden="true">
-          <span className="tile__number">{data.day}</span>
+          <span className="tile__number">{data.demo ? '✦' : data.day}</span>
           <span className="tile__rule" />
           {data.special && <span className="tile__special">especial</span>}
+          {data.demo && <span className="tile__special">ejemplo</span>}
           {state === 'ready' && <span className="tile__dot" />}
         </span>
       )}
@@ -245,17 +218,19 @@ function DayDialog({ data, onClose }: { data: AdventDay; onClose: () => void }) 
         className="dialog"
         role="dialog"
         aria-modal="true"
-        aria-label={`Día ${data.day}`}
+        aria-label={data.demo ? 'Ventana de ejemplo' : `Día ${data.day}`}
         onClick={(event) => event.stopPropagation()}
       >
         <button ref={closeRef} type="button" className="dialog__close" onClick={onClose} aria-label="Cerrar">
           <span aria-hidden="true">×</span>
         </button>
         <div className="dialog__media">
-          <DayPhoto day={data.day} />
+          <DayPhoto day={data.photoDay ?? data.day} />
         </div>
         <div className="dialog__caption">
-          <p className="dialog__eyebrow">Día {data.day}{data.special ? ' · especial' : ''}</p>
+          <p className="dialog__eyebrow">
+            {data.demo ? 'Ejemplo · así se abre cada día' : `Día ${data.day}${data.special ? ' · especial' : ''}`}
+          </p>
           <p className="dialog__phrase">{data.phrase}</p>
         </div>
       </div>

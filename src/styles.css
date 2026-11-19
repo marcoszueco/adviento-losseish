@@ -165,6 +165,10 @@ button {
   border-color: rgba(255, 250, 238, 0.55);
 }
 
+.tile--demo {
+  border-color: rgba(255, 250, 238, 0.4);
+}
+
 @media (min-width: 1024px) {
   .tile--special { grid-column-start: 2; }
 }
@@ -327,152 +331,6 @@ button {
   font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1;
   font-variant-numeric: tabular-nums;
-}
-
-/* Sección de ejemplo */
-.example {
-  max-width: 48rem;
-  margin: 0 auto;
-  padding: 0 1.25rem 5rem;
-  text-align: center;
-}
-
-.example__heading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  padding-bottom: 2rem;
-}
-
-.example__eyebrow {
-  margin: 0;
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.44em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.example__quote {
-  margin: 0;
-  max-width: 28rem;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.4rem;
-  font-style: italic;
-  line-height: 1.35;
-  color: rgba(44, 41, 37, 0.8);
-}
-
-.example__open {
-  margin-top: 0.5rem;
-  padding: 0.7rem 1.5rem;
-  border: 1px solid var(--foreground);
-  border-radius: 999px;
-  background: var(--foreground);
-  color: var(--background);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  cursor: pointer;
-  transition: background 0.25s ease, color 0.25s ease;
-}
-
-.example__open:hover {
-  background: transparent;
-  color: var(--foreground);
-}
-
-.example__open:focus-visible {
-  outline: 2px solid var(--foreground);
-  outline-offset: 3px;
-}
-
-.example__note {
-  margin: 0;
-  font-size: 0.68rem;
-  color: var(--muted);
-}
-
-.example__card {
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 0.25rem;
-  background: var(--card);
-  text-align: left;
-  cursor: pointer;
-  transition: box-shadow 0.35s ease, transform 0.35s ease;
-}
-
-.example__card:hover,
-.example__card:focus-visible {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(48, 43, 37, 0.16);
-}
-
-.example__card:focus-visible {
-  outline: 2px solid var(--foreground);
-  outline-offset: 3px;
-}
-
-.example__media {
-  display: block;
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  filter: saturate(0.92) contrast(1.05);
-}
-
-.example__caption {
-  display: block;
-  padding: 1.75rem 1.5rem 2.25rem;
-}
-
-@media (min-width: 640px) {
-  .example__caption { padding: 1.75rem 2.5rem 2.25rem; }
-}
-
-.example__label {
-  margin: 0;
-  font-size: 0.5625rem;
-  font-weight: 600;
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.example__phrase {
-  margin: 1rem 0 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.35rem;
-  line-height: 1.35;
-  color: var(--foreground);
-}
-
-@media (min-width: 640px) {
-  .example__phrase { font-size: 1.6rem; }
-}
-
-.example__hint {
-  display: inline-block;
-  margin-top: 1.25rem;
-  padding: 0.4rem 0.85rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--background);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: var(--muted);
-}
-
-.example__card:hover .example__hint {
-  color: var(--foreground);
 }
 
 /* Ventana del día */
