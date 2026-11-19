@@ -195,11 +195,10 @@ function DayTile({ data, state, isToday, hint, onSelect }: DayTileProps) {
         </span>
       ) : (
         <span className="tile__face" aria-hidden="true">
+          <span className="tile__label">{data.demo ? 'prueba' : 'día'}</span>
           <span className="tile__number">{data.demo ? '✦' : data.day}</span>
-          <span className="tile__rule" />
           {data.special && <span className="tile__special">especial</span>}
           {data.demo && <span className="tile__special">ejemplo</span>}
-          {state === 'ready' && <span className="tile__dot" />}
         </span>
       )}
       {hint && <span className="tile__hint">¡Aún no! Día {data.day}</span>}
@@ -258,9 +257,8 @@ function DayPhoto({ day }: { day: number }) {
   if (failed) {
     return (
       <span className="photo-fallback">
-        <span className="photo-fallback__line" />
+        <span className="photo-fallback__label">foto</span>
         <span className="photo-fallback__text">{name}</span>
-        <span className="photo-fallback__line" />
       </span>
     )
   }
