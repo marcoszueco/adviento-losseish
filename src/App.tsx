@@ -118,6 +118,14 @@ export default function App() {
           <div className="example__heading">
             <p className="example__eyebrow">Cómo se abre un día</p>
             <p className="example__quote">La foto llega primero. La frase, justo debajo.</p>
+            <button
+              type="button"
+              className="example__open"
+              onClick={() => setSelectedDay(1)}
+            >
+              Abrir ventana de ejemplo
+            </button>
+            <p className="example__note">Se abre y se cierra las veces que quieras.</p>
           </div>
 
           <button
@@ -132,7 +140,7 @@ export default function App() {
             <span className="example__caption">
               <span className="example__label">Ejemplo · día 1</span>
               <span className="example__phrase">{config.examplePhrase}</span>
-              <span className="example__hint">Haz clic para ver cómo se abre →</span>
+              <span className="example__hint">Haz clic aquí también para abrirla →</span>
             </span>
           </button>
         </section>

@@ -364,6 +364,36 @@ button {
   color: rgba(44, 41, 37, 0.8);
 }
 
+.example__open {
+  margin-top: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border: 1px solid var(--foreground);
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.example__open:hover {
+  background: transparent;
+  color: var(--foreground);
+}
+
+.example__open:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 3px;
+}
+
+.example__note {
+  margin: 0;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
 .example__card {
   display: block;
   width: 100%;
@@ -429,11 +459,15 @@ button {
 }
 
 .example__hint {
-  display: block;
+  display: inline-block;
   margin-top: 1.25rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--background);
   font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--muted);
 }
 
