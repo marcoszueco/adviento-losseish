@@ -65,7 +65,7 @@ export const days: AdventDay[] = [
 /** Baldosa de prueba: vive fuera del calendario, al final de la página. */
 export const demoDay: AdventDay = {
   day: 0,
-  phrase: 'Empezamos por lo pequeño: un abrazo que dura un segundo de más. Así se abre cada día: la foto primero y la frase justo debajo. Vuelve a abrirla cuando quieras.',
+  phrase: 'Así se abre cada día: la foto primero y la frase justo debajo. Vuelve a abrirla cuando quieras. HYPE!',
   color: 'blue',
   shape: 'a',
   demo: true,
