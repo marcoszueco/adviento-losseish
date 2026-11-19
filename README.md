@@ -42,16 +42,14 @@ También hay un enlace discreto abajo del todo («Ver todos los días (modo prue
 
 ## Subir a GitHub
 
+El repositorio local ya está inicializado en la rama `main` con un primer commit. Crea el repositorio vacío en GitHub y ejecuta:
+
 ```bash
-git init
-git add .
-git commit -m "Calendario de adviento Los Seish"
-git branch -M main
 git remote add origin https://github.com/TU_USUARIO/TU_REPOSITORIO.git
 git push -u origin main
 ```
 
-Si ya creaste el repositorio en GitHub con README, omite `git init` y usa `git clone` en su lugar.
+Después, cada cambio se sube con `git add .`, `git commit -m "mensaje"` y `git push`.
 
 ## Desplegar en Vercel
 
