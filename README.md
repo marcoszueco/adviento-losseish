@@ -27,7 +27,7 @@ Mientras no existan, se muestra una tarjeta de respaldo con el número. Si tus f
 
 ## Cambiar textos
 
-- **Título, intro, frase de ejemplo y pie:** `src/config.ts`
+- **Título, frase principal, frase de ejemplo y pie:** `src/config.ts`
 - **Frases de cada día:** `src/data/days.ts` (campo `phrase`)
 
 ## Orden y forma del mosaico

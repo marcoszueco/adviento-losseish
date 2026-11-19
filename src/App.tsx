@@ -45,7 +45,6 @@ export default function App() {
   const [selectedDay, setSelectedDay] = useState<number | null>(null)
 
   const selected = selectedDay === null ? undefined : days.find((item) => item.day === selectedDay)
-  const openedCount = days.filter((item) => opened.has(item.day)).length
 
   useEffect(() => {
     try {
@@ -84,13 +83,12 @@ export default function App() {
 
       <main>
         <section className="intro">
-          <p className="intro__text">{config.intro}</p>
+          <h1 className="intro__headline">{config.headline}</h1>
           <div className="intro__countdown">
             <span className="intro__line" />
             <span>{countdownLabel(revealedDay)}</span>
             <span className="intro__line" />
           </div>
-          <p className="intro__progress">{openedCount} de {TOTAL_DAYS} puertas abiertas</p>
         </section>
 
         <section className="calendar-section" aria-label="Calendario de adviento">
@@ -122,15 +120,21 @@ export default function App() {
             <p className="example__quote">La foto llega primero. La frase, justo debajo.</p>
           </div>
 
-          <figure className="example__card">
-            <div className="example__media">
+          <button
+            type="button"
+            className="example__card"
+            onClick={() => setSelectedDay(1)}
+            aria-label="Probar cómo se abre un día: ver la ventana del día 1"
+          >
+            <span className="example__media">
               <DayPhoto day={1} />
-            </div>
-            <figcaption className="example__caption">
-              <p className="example__label">Ejemplo · día 1</p>
-              <p className="example__phrase">{config.examplePhrase}</p>
-            </figcaption>
-          </figure>
+            </span>
+            <span className="example__caption">
+              <span className="example__label">Ejemplo · día 1</span>
+              <span className="example__phrase">{config.examplePhrase}</span>
+              <span className="example__hint">Haz clic para ver cómo se abre →</span>
+            </span>
+          </button>
         </section>
       </main>
 

@@ -30,7 +30,7 @@ export const days: AdventDay[] = [
   { day: 23, phrase: 'Mañana será Navidad. Cierra los ojos y pide un deseo.', color: 'red', shape: 'c' },
   { day: 24, phrase: 'La última puerta antes de la magia: prepara el brindis y la mesa.', color: 'green', shape: 'd', tall: true },
   { day: 14, phrase: 'La ilusión se contagia: compártela sin miedo.', color: 'blue', shape: 'a' },
-  { day: 8, phrase: 'Deja una ventana abierta a la sorpresa.', color: 'red', shape: 'b', wide: true, tall: true },
+  { day: 1, phrase: 'Empezamos por lo pequeño: un abrazo que dura un segundo de más.', color: 'red', shape: 'b', wide: true, tall: true },
   { day: 21, phrase: 'La última semana sabe a hogar, a mantel y a risas.', color: 'green', shape: 'c' },
   { day: 7, phrase: 'Hay magia en las cosas sencillas si las miras con cariño.', color: 'ochre', shape: 'd' },
   {
@@ -44,7 +44,7 @@ export const days: AdventDay[] = [
   },
   { day: 10, phrase: 'La mejor decoración es la gente que se reúne alrededor.', color: 'red', shape: 'b' },
   { day: 5, phrase: 'Comparte una sonrisa: es la mejor forma de empezar el adviento.', color: 'blue', shape: 'c', wide: true },
-  { day: 1, phrase: 'Empezamos por lo pequeño: un abrazo que dura un segundo de más.', color: 'ochre', shape: 'd' },
+  { day: 8, phrase: 'Deja una ventana abierta a la sorpresa.', color: 'ochre', shape: 'd' },
   { day: 2, phrase: 'Las luces que enciendes afuera también encienden algo adentro.', color: 'red', shape: 'a' },
   { day: 22, phrase: 'Deja una silla libre para quien no pudo estar.', color: 'blue', shape: 'b', tall: true },
   { day: 6, phrase: 'Los pequeños detalles son los que hacen grandes los recuerdos.', color: 'green', shape: 'c' },

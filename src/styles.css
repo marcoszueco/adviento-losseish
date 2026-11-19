@@ -69,16 +69,16 @@ button {
   text-align: center;
 }
 
-.intro__text {
+.intro__headline {
   margin: 0 auto;
-  max-width: 32rem;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--muted);
-}
-
-@media (min-width: 640px) {
-  .intro__text { font-size: 1rem; }
+  max-width: 44rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.9rem, 5.2vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--foreground);
 }
 
 .intro__countdown {
@@ -99,13 +99,6 @@ button {
   width: 2rem;
   height: 1px;
   background: rgba(48, 43, 37, 0.28);
-}
-
-.intro__progress {
-  margin: 1rem 0 0;
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  color: var(--muted);
 }
 
 /* Mosaico */
@@ -372,15 +365,32 @@ button {
 }
 
 .example__card {
+  display: block;
+  width: 100%;
   margin: 0;
+  padding: 0;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 0.25rem;
   background: var(--card);
   text-align: left;
+  cursor: pointer;
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.example__card:hover,
+.example__card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(48, 43, 37, 0.16);
+}
+
+.example__card:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 3px;
 }
 
 .example__media {
+  display: block;
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
@@ -389,6 +399,7 @@ button {
 }
 
 .example__caption {
+  display: block;
   padding: 1.75rem 1.5rem 2.25rem;
 }
 
@@ -415,6 +426,19 @@ button {
 
 @media (min-width: 640px) {
   .example__phrase { font-size: 1.6rem; }
+}
+
+.example__hint {
+  display: block;
+  margin-top: 1.25rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.example__card:hover .example__hint {
+  color: var(--foreground);
 }
 
 /* Ventana del día */
