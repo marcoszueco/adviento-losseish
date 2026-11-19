@@ -44,7 +44,8 @@ export default function App() {
   const [hintDay, setHintDay] = useState<number | null>(null)
   const [selectedDay, setSelectedDay] = useState<number | null>(null)
 
-  const selected = selectedDay === null ? undefined : days.find((item) => item.day === selectedDay)
+  const selected =
+    selectedDay === null ? undefined : [demoDay, ...days].find((item) => item.day === selectedDay)
 
   useEffect(() => {
     try {
@@ -67,7 +68,9 @@ export default function App() {
       setHintDay(day)
       return
     }
-    setOpened((previous) => new Set(previous).add(day))
+    if (day !== 0) {
+      setOpened((previous) => new Set(previous).add(day))
+    }
     setSelectedDay(day)
   }, [])
 
