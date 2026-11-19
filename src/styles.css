@@ -455,11 +455,11 @@ button {
   justify-content: center;
   gap: 0.45rem;
   padding: 3rem 1.25rem 0.75rem;
-  font-size: 0.625rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(48, 43, 37, 0.78);
 }
 
 .site-footer__credit a {
@@ -472,8 +472,8 @@ button {
 .site-footer__insta { display: inline-flex; }
 
 .site-footer__insta svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.15rem;
+  height: 1.15rem;
 }
 
 .site-footer > p {
