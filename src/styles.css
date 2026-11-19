@@ -1,14 +1,14 @@
 :root {
-  --background: #f7f4ee;
-  --card: #fffdf9;
-  --foreground: #2c2925;
-  --muted: #8c857a;
-  --border: rgba(44, 41, 37, 0.12);
-  --tile-red: #d2a29c;
-  --tile-blue: #a8bdcd;
-  --tile-green: #a9bda6;
-  --tile-ochre: #d9bc86;
-  --on-tile: rgba(255, 253, 249, 0.78);
+  --background: #ece5d7;
+  --card: #f6f0e4;
+  --foreground: #302b25;
+  --muted: #7b7366;
+  --border: rgba(48, 43, 37, 0.14);
+  --tile-red: #a35e56;
+  --tile-blue: #6e879f;
+  --tile-green: #6b8568;
+  --tile-ochre: #b08c4c;
+  --on-tile: rgba(255, 250, 238, 0.88);
   font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   color: var(--foreground);
   background: var(--background);
@@ -98,7 +98,7 @@ button {
   display: block;
   width: 2rem;
   height: 1px;
-  background: rgba(44, 41, 37, 0.25);
+  background: rgba(48, 43, 37, 0.28);
 }
 
 .intro__progress {
@@ -154,7 +154,7 @@ button {
   width: 100%;
   height: 100%;
   padding: 0;
-  border: 1px solid rgba(255, 253, 249, 0.16);
+  border: 1px solid rgba(255, 250, 238, 0.2);
   text-align: left;
   cursor: pointer;
   transition: transform 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
@@ -169,7 +169,7 @@ button {
 .tile--tall { grid-row: span 2; }
 
 .tile--special {
-  border-color: rgba(255, 253, 249, 0.45);
+  border-color: rgba(255, 250, 238, 0.55);
 }
 
 @media (min-width: 1024px) {
@@ -202,7 +202,7 @@ button {
 }
 
 .tile--today {
-  box-shadow: inset 0 0 0 2px rgba(255, 253, 249, 0.75);
+  box-shadow: inset 0 0 0 2px rgba(255, 250, 238, 0.85);
 }
 
 .tile--hint {
@@ -244,7 +244,7 @@ button {
   display: block;
   width: 1.25rem;
   height: 1px;
-  background: rgba(255, 253, 249, 0.38);
+  background: rgba(255, 250, 238, 0.5);
 }
 
 .tile__special {
@@ -252,7 +252,7 @@ button {
   font-weight: 600;
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: rgba(255, 253, 249, 0.6);
+  color: rgba(255, 250, 238, 0.72);
 }
 
 .tile__dot {
@@ -260,7 +260,7 @@ button {
   height: 4px;
   margin-top: -0.15rem;
   border-radius: 50%;
-  background: rgba(255, 253, 249, 0.85);
+  background: rgba(255, 250, 238, 0.92);
 }
 
 .tile__photo {
@@ -317,16 +317,16 @@ button {
   justify-content: center;
   gap: 0.6rem;
   background:
-    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.28), transparent 45%),
-    linear-gradient(150deg, #cbb894, #a58e63 55%, #7c6947);
-  color: rgba(255, 253, 249, 0.82);
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.22), transparent 45%),
+    linear-gradient(150deg, #b6a07c, #8c7552 55%, #62523a);
+  color: rgba(255, 250, 238, 0.88);
 }
 
 .photo-fallback__line {
   display: block;
   width: 2rem;
   height: 1px;
-  background: rgba(255, 253, 249, 0.5);
+  background: rgba(255, 250, 238, 0.55);
 }
 
 .photo-fallback__text {
@@ -464,7 +464,7 @@ button {
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: rgba(255, 253, 249, 0.9);
+  background: rgba(246, 240, 228, 0.95);
   color: var(--foreground);
   font-size: 1.5rem;
   line-height: 1;
